@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="GB2312"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="false" threshold="all">
+
+
+
+	<!-- ============================== -->
+	<!-- Append messages to the console -->
+	<!-- ============================== -->
+	
+	<appender name="CONSOLE_OUT" class="org.apache.log4j.ConsoleAppender">
+		<param name="Name" value="SystemOut" />
+		<param name="Threshold" value="All" />
+
+		<param name="Target" value="System.out" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{ABSOLUTE} %-5p [%c{1}] %m%n" />
+		</layout>
+	</appender>
+	
+	<!-- 设置通道ID:org.zblog.all和输出方式：org.apache.log4j.RollingFileAppender -->
+	<appender name="weblogic.log.file" class="org.apache.log4j.RollingFileAppender">
+	   <param name="File" value="f:\csii.domain.log" /><!-- 设置File参数：日志输出文件名 -->
+	   <param name="Append" value="true" /><!-- 设置是否在重新启动服务时，在原有日志的基础添加新日志 -->
+	   <param name="MaxFileSize" value="5MB" /> <!-- 设置文件大小 -->
+	   <param name="MaxBackupIndex" value="10" /> 
+	   <layout class="org.apache.log4j.PatternLayout">
+	       <param name="ConversionPattern" value="%d %-5p %c - %m%n" /><!-- 设置输出文件项目和格式 -->
+	   </layout>
+	</appender>
+	
+	<root>
+		<priority value="DEBUG" />
+		<appender-ref ref="CONSOLE_OUT" />
+		<appender-ref ref="weblogic.log.file" />
+	</root>
+
+</log4j:configuration>
