@@ -22,6 +22,15 @@ public interface AccountBiz<T> {
 	public T getAccount(Integer id) throws DataAccessException;
 	
 	/**
+	 * function 根据id删除Account
+	 * @param id
+	 * @return boolean 
+	 * @throws DataAccessException
+	 * 
+	 */
+    public boolean deleteAccount(Integer id)throws DataAccessException;
+	
+	/**
 	 * <b>function:</b> 查询所有Account信息
 	 * @param id 编号id
 	 * @return Account

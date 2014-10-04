@@ -19,9 +19,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
   		<h3>MyBatis 3 整合  Spring 3</h3>
-    	<a href="account/list.do">查询所有</a><br/>
-    	<a href="account/add.do?username=abcdef&password=123132&status=2">添加</a><br/>
-    	<a href="account/get.do?id=25">查询</a><br/>
-    	<a href="account/freemarker.do">freemarker查询所有</a><br/>
+    	<a href="account/list.html">查询所有</a><br/>
+    	<a href="account/add.html?username=abcdef&password=123132&status=2">添加</a><br/>
+    	<a href="account/get.html?id=25">查询</a><br/>
+    	<a href="account/freemarker.html">freemarker查询所有</a><br/>
   </body>
 </html>

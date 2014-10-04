@@ -31,5 +31,10 @@ public class AccountBizImpl<T extends Account> implements AccountBiz<T>{
 		return dao.getList();
 	}
 
+	public boolean deleteAccount(Integer id) throws DataAccessException {
+		// TODO Auto-generated method stub
+		return dao.deleteAccount(id);
+	}
+
 
 }

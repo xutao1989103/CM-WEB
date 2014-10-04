@@ -42,4 +42,17 @@ public class AccountDaoImpl<T extends Account> implements AccountDao<T> {
 		return (List<T>) mapper.getAllAccount();
 	}
 
+	public boolean deleteAccount(Integer id) throws DataAccessException {
+		// TODO Auto-generated method stub
+		boolean flag=false;
+		try{
+			mapper.removeAccount(id);
+			flag=true;
+		}catch(DataAccessException e){
+			flag=false;
+			throw e;
+		}
+		return flag;
+	}
+
 }
