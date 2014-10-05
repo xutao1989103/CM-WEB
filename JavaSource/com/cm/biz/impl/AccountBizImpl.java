@@ -1,6 +1,7 @@
 package com.cm.biz.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -34,6 +35,11 @@ public class AccountBizImpl<T extends Account> implements AccountBiz<T>{
 	public boolean deleteAccount(Integer id) throws DataAccessException {
 		// TODO Auto-generated method stub
 		return dao.deleteAccount(id);
+	}
+
+	public List<T> getListByNameAndPassword(Map map) throws DataAccessException {
+		// TODO Auto-generated method stub
+		return dao.getListByNameAndPassword(map);
 	}
 
 

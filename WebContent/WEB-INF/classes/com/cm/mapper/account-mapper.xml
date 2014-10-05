@@ -26,6 +26,12 @@
         ]]>
 	</select>
 	
+	<select id="getListByNameAndPassword" parameterType="map" resultType="list"  resultMap="accountResultMap">
+		<![CDATA[
+			select * from account where username = #{h_name} and password=#{h_password}
+        ]]>
+	</select>
+	
 	<sql id="user_name_pwd">
 		username, password
 	</sql>

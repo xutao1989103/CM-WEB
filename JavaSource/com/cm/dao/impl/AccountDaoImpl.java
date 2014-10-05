@@ -1,6 +1,7 @@
 package com.cm.dao.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -40,6 +41,10 @@ public class AccountDaoImpl<T extends Account> implements AccountDao<T> {
 
 	public List<T> getList() throws DataAccessException {
 		return (List<T>) mapper.getAllAccount();
+	}
+	
+	public List<T> getListByNameAndPassword(Map map) throws DataAccessException{
+		return (List<T>) mapper.getListByNameAndPassword(map);
 	}
 
 	public boolean deleteAccount(Integer id) throws DataAccessException {

@@ -19,7 +19,6 @@
     });
     $('#save').click(function(){
        $(this).button('saving');//Ö´ÐÐµÈ´ý×´Ì¬ÇÐ»»²Ù×÷
-       var param="{username:"+$('#username').val()+",password="+$('#password').val()+"}";
        var name=$('#username').val();
        var word=$('#password').val();
        var account={username:name,password:word};

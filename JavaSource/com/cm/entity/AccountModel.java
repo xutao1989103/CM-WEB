@@ -1,5 +1,8 @@
 package com.cm.entity;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class AccountModel {
 	private String username;
 	

@@ -1,6 +1,7 @@
 package com.cm.biz;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.dao.DataAccessException;
 
@@ -37,5 +38,13 @@ public interface AccountBiz<T> {
 	 * @throws DataAccessException
 	 */
 	public List<T> getList() throws DataAccessException;
+	
+	/**
+	 * <b>function:</b> 根据uername和password查询所有Account信息
+	 * @param id 编号id
+	 * @return List
+	 * @throws DataAccessException
+	 */
+	public List<T> getListByNameAndPassword(Map map) throws DataAccessException;
 
 }

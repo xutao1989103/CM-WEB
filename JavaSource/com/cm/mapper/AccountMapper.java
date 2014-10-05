@@ -1,6 +1,7 @@
 package com.cm.mapper;
 
 import java.util.List;
+import java.util.Map;
 
 import com.cm.entity.Account;
 
@@ -21,5 +22,7 @@ public interface AccountMapper extends BaseSqlMapper<Account>{
 	public void editAccount(Account account);
 	
 	public void removeAccount(int id);
+	
+	public List<Account> getListByNameAndPassword(Map map);
 
 }
