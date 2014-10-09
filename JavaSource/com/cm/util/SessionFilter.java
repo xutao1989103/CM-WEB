@@ -19,30 +19,30 @@ public class SessionFilter extends OncePerRequestFilter{
 		// TODO Auto-generated method stub
 		 
 		  
-        // ²»¹ýÂËµÄuri  
-        String[] notFilter = new String[] { "login", "register","accountLogin"};  
+        // ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½uri  
+        String[] notFilter = new String[] { "login", "register","accountLogin","list"};  
   
-        // ÇëÇóµÄuri  
+        // ï¿½ï¿½ï¿½ï¿½ï¿½uri  
         String uri = request.getRequestURI();  
   
-        // uriÖÐ°üº¬accountÊ±²Å½øÐÐ¹ýÂË  
+        // uriï¿½Ð°ï¿½accountÊ±ï¿½Å½ï¿½ï¿½Ð¹ï¿½ï¿½ï¿½  
         if (uri.indexOf("account") != -1) {  
-            // ÊÇ·ñ¹ýÂË  
+            // ï¿½Ç·ï¿½ï¿½ï¿½ï¿½  
             boolean doFilter = true;  
             for (String s : notFilter) {  
                 if (uri.indexOf(s) != -1) {  
-                    // Èç¹ûuriÖÐ°üº¬²»¹ýÂËµÄuri£¬Ôò²»½øÐÐ¹ýÂË  
+                    // ï¿½ï¿½ï¿½uriï¿½Ð°ï¿½ï¿½ï¿½Ëµï¿½uriï¿½ï¿½ï¿½ò²»½ï¿½ï¿½Ð¹ï¿½ï¿½ï¿½  
                     doFilter = false;  
                     break;  
                 }  
             }  
             if (doFilter) {  
-                // Ö´ÐÐ¹ýÂË  
-                // ´ÓsessionÖÐ»ñÈ¡µÇÂ¼ÕßÊµÌå  
+                // Ö´ï¿½Ð¹ï¿½ï¿½ï¿½  
+                // ï¿½ï¿½sessionï¿½Ð»ï¿½È¡ï¿½ï¿½Â¼ï¿½ï¿½Êµï¿½ï¿½  
                 Object obj = request.getSession().getAttribute("loginedUser");  
                 if (null == obj) {  
-                    // Èç¹ûsessionÖÐ²»´æÔÚµÇÂ¼ÕßÊµÌå£¬Ôòµ¯³ö¿òÌáÊ¾ÖØÐÂµÇÂ¼  
-                    // ÉèÖÃrequestºÍresponseµÄ×Ö·û¼¯£¬·ÀÖ¹ÂÒÂë  
+                    // ï¿½ï¿½ï¿½sessionï¿½Ð²ï¿½ï¿½ï¿½ï¿½Úµï¿½Â¼ï¿½ï¿½Êµï¿½å£¬ï¿½òµ¯³ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½Âµï¿½Â¼  
+                    // ï¿½ï¿½ï¿½ï¿½requestï¿½ï¿½responseï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½  
                     request.setCharacterEncoding("UTF-8");  
                     response.setCharacterEncoding("UTF-8");  
                     PrintWriter out = response.getWriter();  
@@ -55,15 +55,15 @@ public class SessionFilter extends OncePerRequestFilter{
                     builder.append("</script>");  
                     out.print(builder.toString());  
                 } else {  
-                    // Èç¹ûsessionÖÐ´æÔÚµÇÂ¼ÕßÊµÌå£¬Ôò¼ÌÐø  
+                    // ï¿½ï¿½ï¿½sessionï¿½Ð´ï¿½ï¿½Úµï¿½Â¼ï¿½ï¿½Êµï¿½å£¬ï¿½ï¿½ï¿½ï¿½ï¿½  
                     filterChain.doFilter(request, response);  
                 }  
             } else {  
-                // Èç¹û²»Ö´ÐÐ¹ýÂË£¬Ôò¼ÌÐø  
+                // ï¿½ï¿½ï¿½Ö´ï¿½Ð¹ï¿½ï¿½Ë£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  
                 filterChain.doFilter(request, response);  
             }  
         } else {  
-            // Èç¹ûuriÖÐ²»°üº¬background£¬Ôò¼ÌÐø  
+            // ï¿½ï¿½ï¿½uriï¿½Ð²ï¿½ï¿½ï¿½backgroundï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  
             filterChain.doFilter(request, response);  
         }  
 	}

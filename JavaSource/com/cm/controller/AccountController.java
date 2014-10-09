@@ -24,6 +24,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.cm.biz.AccountBiz;
 import com.cm.entity.Account;
+import com.cm.entity.AccountMessage;
 import com.cm.entity.AccountModel;
 import com.cm.entity.ResultMessage;
 
@@ -59,6 +60,7 @@ public class AccountController {
 		}
 		return result;
 	}
+	
 	
 	@RequestMapping("/index")
 	public ModelAndView getIndex(HttpServletRequest request){

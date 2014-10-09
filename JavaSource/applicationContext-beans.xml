@@ -13,4 +13,8 @@
 	
 	<bean id="dao" class="com.cm.dao.impl.AccountDaoImpl"></bean>
 	
+	<bean id="customerBiz" class="com.cm.biz.impl.CustomerBizImpl"></bean>
+	
+	<bean id="customerDao" class="com.cm.dao.impl.CustomerDaoImpl"></bean>
+	
 </beans>
