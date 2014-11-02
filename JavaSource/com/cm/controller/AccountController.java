@@ -85,7 +85,10 @@ public class AccountController {
 		Account account=new Account();
 		account.setUsername(accountModel.getUsername());
 		account.setPassword(accountModel.getPassword());
-		account.setStatus(1);
+		account.setSex(accountModel.getSex());
+		account.setEmail(accountModel.getEmail());
+		account.setPhone(accountModel.getPhone());
+		account.setPhoto(accountModel.getPhoto());
 		boolean success=biz.addAccount(account);
 		if(success){
 			result.setCode(ResultMessage.SUCCESS);

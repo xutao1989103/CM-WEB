@@ -8,6 +8,15 @@ public class Account implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	private Integer accountId;
+	private Integer isDeleted;
+	public Integer getIsDeleted() {
+		return isDeleted;
+	}
+
+	public void setIsDeleted(Integer isDeleted) {
+		this.isDeleted = isDeleted;
+	}
+
 	public Integer getAccountId() {
 		return accountId;
 	}
@@ -74,6 +83,33 @@ public class Account implements Serializable {
 	private String salt;
 	private String email;
 	private Integer roleId;
+	private Integer sex;
+	private String phone;
+	private String photo;
+
+	public Integer getSex() {
+		return sex;
+	}
+
+	public void setSex(Integer sex) {
+		this.sex = sex;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
 
 	@Override
 	public String toString() {

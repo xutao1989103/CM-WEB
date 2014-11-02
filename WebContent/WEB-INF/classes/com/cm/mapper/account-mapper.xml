@@ -4,31 +4,31 @@
 <mapper namespace="com.cm.mapper.AccountMapper">
 	<select id="getAccount" resultType="account">
 		<![CDATA[
-			select * from account fetch first one rows only
+			select * from daohe_user fetch first one rows only
         ]]>
 	</select>
 	
 	<select id="getAllAccount" resultType="list" resultMap="accountResultMap">
 		<![CDATA[
-			select * from account
+			select * from daohe_user where is_deleted=0
         ]]>
 	</select>
 	
 	<select id="getAccountById" parameterType="string" resultType="com.cm.entity.Account" resultMap="accountResultMap">
 		<![CDATA[
-			select * from account where account_id = #{id}
+			select * from daohe_user where user_id = #{id} and  is_deleted=0
         ]]>
 	</select>
 	
 	<select id="getAccountByNames" parameterType="string" resultMap="accountMap.accountResultMap">
 		<![CDATA[
-			select * from account where username = #{name}
+			select * from daohe_user where username = #{name}  is_deleted=0
         ]]>
 	</select>
 	
 	<select id="getListByNameAndPassword" parameterType="map" resultType="list"  resultMap="accountResultMap">
 		<![CDATA[
-			select * from account where username = #{h_name} and password=#{h_password}
+			select * from daohe_user where username = #{h_name} and password=#{h_password} and  is_deleted=0
         ]]>
 	</select>
 	
@@ -36,28 +36,23 @@
 		username, password
 	</sql>
 	
-	<insert id="addAccount" useGeneratedKeys="true" keyProperty="account_id" parameterType="account">
-		insert into account(account_id, status, username, password)
-		values(#{accountId}, #{status}, #{username}, #{password})
+	<insert id="addAccount" useGeneratedKeys="true" keyProperty="user_id" parameterType="account">
+		insert into daohe_user(user_id, username, password,is_deleted,sex,email,phone,photo)
+		values(#{accountId},#{username}, #{password},0, #{sex}, #{email}, #{phone}, #{photo})
 	</insert>
 
-	<insert id="addAccount4Key" parameterType="account">
-		<selectKey keyProperty="account_id" order="BEFORE" resultType="int">
-			select cast(random() * 10000 as Integer) a from #Tab
-		</selectKey>
-		insert into account(account_id, status, username, password)
-		values(#{accountId}, #{status}, #{username}, #{password})
-	</insert>
 	
 	<update id="editAccount" parameterType="account">
-		update account set
-		status = #{status},
+		update daohe_user set
+		is_deleted = #{isDeleted},
 		username = #{username},
 		password = #{password}
 		where account_id = #{accountId}
 	</update>
 	
 	<delete id="removeAccount" parameterType="int">
-		delete from account where account_id = #{id}
+		update daohe_user
+		set is_deleted=1
+	    where user_id = #{id}
 	</delete>
 </mapper>
