@@ -4,3 +4,5 @@
 *.project
 *.mymetadata
 .settings
+.myeclipse
+/WebContent/WEB-INF/classes
