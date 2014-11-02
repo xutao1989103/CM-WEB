@@ -21,7 +21,10 @@
        $(this).button('saving');//执行等待状态切换操作
        var name=$('#username').val();
        var word=$('#password').val();
-       var account={username:name,password:word};
+       var sex=$('#sex-select').val();
+       var email=$('#email').val();
+       var phone=$('#phone').val();
+       var account={username:name,password:word,sex:sex,email:email,phone:phone};
        remote('POST','addAccount',account,
        function(data){
           alert("保存成功！");
@@ -45,6 +48,10 @@
        
      });
   }
+  
+  function setImage(obj){
+    image.src = obj.value;
+  }
 </script>
 </head>
 <body>
@@ -53,23 +60,61 @@
   <div class="panel-body">
   
  <div class="row">
-  <div class="col-lg-6">
+  <div class="col-md-4">
     <div class="input-group">
-      <span class="input-group-addon">
-        <input type="text" value="用戶名：" readOnly>
-      </span>
+      <span class="input-group-addon">用户名：</span>
       <input type="text" id="username" class="form-control">
     </div><!-- /input-group -->
   </div><!-- /.col-lg-6 -->
-  <div class="col-lg-6">
+ </div><!-- /.row -->
+ 
+  <div class="row">
+  <div class="col-md-4">
     <div class="input-group">
-      <span class="input-group-addon">
-        <input type="text"  value="密码：" readOnly>
-      </span>
+      <span class="input-group-addon">密码： </span>
       <input type="text" id="password" class="form-control">
     </div><!-- /input-group -->
   </div><!-- /.col-lg-6 -->
  </div><!-- /.row -->
+ 
+  <div class="row">
+  <div class="col-md-4">
+    <div class="input-group">
+      <span class="input-group-addon">性别： </span>
+       <select id="sex-select" class="form-control">
+         <option value="1">男</option>
+         <option value="2">女</option>
+       </select>
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+ </div><!-- /.row -->
+ 
+  <div class="row">
+  <div class="col-md-4">
+    <div class="input-group">
+      <span class="input-group-addon">邮箱： </span>
+      <input type="email" id="email" class="form-control" placeholder="Enter email">
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+ </div><!-- /.row -->
+ 
+  <div class="row">
+  <div class="col-md-4">
+    <div class="input-group">
+      <span class="input-group-addon">电话： </span>
+      <input type="text" id="phone" class="form-control">
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+ </div><!-- /.row -->
+ 
+  <div class="row">
+    <div class="input-group">
+      <span class="input-group-addon">头像： </span>
+      <input type="file" id="photo" class="form-control" onchange="setImage(this)">
+      <img id="image" name="image" src="" />
+    </div>
+ </div><!-- /.row -->
+
  
 
   <button type="button" id="back" class="btn btn-primary btn-lg">返回</button>
