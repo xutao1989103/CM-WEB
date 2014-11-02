@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cm.mapper.TaskMapper">
+
+	<select id="getTaskById" parameterType="Integer" resultType="com.cm.entity.Task" resultMap="taskResultMap">
+		<![CDATA[
+			select * from daohe_task where task_id = #{id}
+        ]]>
+	</select>
+	
+	<insert id="addTask" useGeneratedKeys="true" keyProperty="task_id" parameterType="task">
+		insert into daohe_task(task_id, task_name, content, create_time, create_id, accept_id, status)
+		values(#{taskId}, #{taskName}, #{content}, #{createTime}, #{createId}, #{acceptId}, #{status})
+	</insert>
+	
+	<update id="editTask" parameterType="task">
+		update daohe_task set
+		task_name = #{taskName}
+		content = #{content}
+		create_time = #{createTime}
+		create_id = #{createId}
+		accept_id = #{acceptId}
+		status = #{status}
+		where task_id = #{taskId}
+	</update>
+	
+	<update id="removeTask" parameterType="int">
+		update daohe_task 
+		set is_deleted=1 
+		where task_id = #{id}
+	</update>
+</mapper>

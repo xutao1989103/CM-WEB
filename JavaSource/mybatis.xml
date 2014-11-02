@@ -4,6 +4,7 @@
 	<!-- 别名 -->
 	<typeAliases>
 		<typeAlias type="com.cm.entity.Account" alias="account"/>
+		<typeAlias type="com.cm.entity.Task" alias="task"/>
 		<typeAlias type="com.cm.entity.Customer" alias="customer"/>
 	</typeAliases>
 </configuration>

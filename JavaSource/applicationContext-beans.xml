@@ -17,4 +17,8 @@
 	
 	<bean id="customerDao" class="com.cm.dao.impl.CustomerDaoImpl"></bean>
 	
+	<bean id="taskBiz" class="com.cm.biz.impl.TaskBizImpl"></bean>
+	
+	<bean id="taskDao" class="com.cm.dao.impl.TaskDaoImpl"></bean>
+	
 </beans>
