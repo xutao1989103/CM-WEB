@@ -86,6 +86,19 @@ public class AccountController {
 		account.setUsername(accountModel.getUsername());
 		account.setPassword(accountModel.getPassword());
 		account.setStatus(1);
+		account.setSex(accountModel.getSex());
+		account.setEmail(accountModel.getEmail());
+		account.setPhone(accountModel.getPhone());
+		account.setPhoto(accountModel.getPhoto());
+		Map<String, String> map=new HashMap<String, String>();
+		map.put("h_name",accountModel.getUsername());
+		map.put("h_password",accountModel.getPassword());
+		List<Account> accounts=biz.getListByNameAndPassword(map);
+		if(accounts!=null||accounts.size()>0){
+			result.setCode(ResultMessage.NOTSUCCESS);
+			result.setMessage("user exist!");
+			return result;
+		}
 		boolean success=biz.addAccount(account);
 		if(success){
 			result.setCode(ResultMessage.SUCCESS);
