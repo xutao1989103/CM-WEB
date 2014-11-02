@@ -1,0 +1,6 @@
+*.[oa]
+*.class
+*.classpath
+*.project
+*.mymetadata
+.settings
