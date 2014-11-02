@@ -6,3 +6,4 @@
 .settings
 .myeclipse
 /WebContent/WEB-INF/classes
+/bin
